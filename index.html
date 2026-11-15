@@ -9,7 +9,6 @@
       --rshb-green: #004d24;
       --rshb-green-light: #007d38;
       --rshb-yellow: #FDB913;
-      --gold: #FFD700;
       --white: #ffffff;
       --glass-bg: rgba(255, 255, 255, 0.9);
     }
@@ -68,7 +67,7 @@
     h2 { font-size: 44px; color: var(--rshb-green); margin-bottom: 15px; text-align: center; }
     .hint { font-size: 22px; color: #333; margin-bottom: 40px; text-align: center; max-width: 800px; }
 
-    /* СЕТКА БАНКОВ (Новый дизайн) */
+    /* СЕТКА БАНКОВ */
     .bank-intro { display: flex; gap: 20px; max-width: 1000px; width: 100%; margin-bottom: 30px; flex-wrap: wrap; justify-content: center; }
     .intro-card { 
       background: var(--glass-bg); backdrop-filter: blur(10px); padding: 30px; border-radius: 20px; 
@@ -87,10 +86,8 @@
     .bank-square:hover { transform: translateY(-5px); border-color: var(--rshb-yellow); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
     .bank-square img { width: 60px; height: 60px; object-fit: contain; }
     .bank-square span { font-weight: bold; color: #333; font-size: 14px; text-align: center; }
-    .bank-square.rshb-highlight { border: 2px solid var(--rshb-yellow); background: #fffcf0; position: relative; overflow: hidden; }
-    .bank-square.rshb-highlight::before { content: 'Главный'; position: absolute; top: 5px; right: -25px; background: var(--rshb-yellow); color: var(--rshb-green); font-size: 10px; font-weight: bold; padding: 2px 30px; transform: rotate(45deg); }
 
-    /* ЭКРАН РОССЕЛЬХОЗБАНК */
+    /* РОССЕЛЬХОЗБАНК */
     .rshb-logo-big { width: 200px; margin-bottom: 20px; }
     .cards { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; max-width: 1200px; }
     .card {
@@ -103,21 +100,17 @@
     .card-text { font-size: 17px; color: #222; line-height: 1.6; max-height: 0; overflow: hidden; opacity: 0; transition: all 0.4s ease; }
     .card.open .card-text { max-height: 800px; opacity: 1; margin-top: 15px; }
 
-    /* КЕЙСЫ КРЕДИТА */
-    .cases-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 1000px; margin-top: 20px; }
-    .case-card {
-      background: var(--glass-bg); backdrop-filter: blur(10px); border: 2px solid transparent; border-radius: 20px;
-      padding: 30px; flex: 1; min-width: 280px; max-width: 310px; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    /* ОБЩИЕ БЛОКИ ИНФОРМАЦИИ */
+    .info-block {
+      background: var(--glass-bg); backdrop-filter: blur(10px);
+      padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.8);
+      max-width: 800px; font-size: 20px; line-height: 1.7; color: #222;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 20px;
     }
-    .case-card:hover { border-color: var(--rshb-yellow); transform: translateY(-3px); }
-    .case-card.open { border-color: var(--rshb-green); background: #fff; }
-    .case-card h3 { font-size: 22px; color: var(--rshb-green); margin-bottom: 10px; }
-    .case-card .case-icon { font-size: 40px; margin-bottom: 15px; }
-    .case-text { font-size: 16px; color: #333; line-height: 1.6; max-height: 0; overflow: hidden; opacity: 0; transition: all 0.4s ease; }
-    .case-card.open .case-text { max-height: 400px; opacity: 1; margin-top: 15px; }
+    .info-block b { color: var(--rshb-green); }
 
-    /* ПРОЦЕНТЫ */
-    .calc-wrapper { width: 100%; display: flex; justify-content: center; }
+    /* КАЛЬКУЛЯТОРЫ */
+    .calc-wrapper { width: 100%; display: flex; justify-content: center; margin-top: 20px; }
     .calc-box {
       display: flex; background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: 20px; padding: 40px; gap: 40px; max-width: 850px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -132,25 +125,6 @@
     .calc-result p { font-size: 20px; opacity: 0.9; margin-bottom: 5px; }
     .calc-result h3 { font-size: 42px; color: var(--rshb-yellow); margin-bottom: 15px; }
     .calc-total span { font-weight: bold; color: var(--rshb-yellow); font-size: 22px; }
-    .toggle { display: flex; gap: 20px; margin-bottom: 20px; justify-content: center; }
-    .toggle-btn {
-      font-size: 22px; padding: 15px 40px; border: 2px solid var(--rshb-green); background: rgba(255, 255, 255, 0.8);
-      color: var(--rshb-green); border-radius: 12px; cursor: pointer; transition: all 0.3s; font-weight: 600;
-    }
-    .toggle-btn.active { background: var(--rshb-green); color: var(--white); box-shadow: 0 4px 15px rgba(0,77,36,0.3); }
-    .percent-box { width: 100%; display: flex; flex-direction: column; align-items: center; }
-
-    /* ВКЛАДЫ ИНТЕРАКТИВ */
-    .deposit-demo { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 900px; margin-top: 20px; }
-    .deposit-choice {
-      background: var(--glass-bg); padding: 30px; border-radius: 20px; border: 2px solid transparent; width: 280px;
-      text-align: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-    .deposit-choice:hover { transform: translateY(-5px); border-color: var(--rshb-yellow); }
-    .deposit-choice.active { border-color: var(--rshb-green); background: #fff; }
-    .deposit-choice h3 { color: var(--rshb-green); margin-bottom: 15px; font-size: 22px; }
-    .deposit-choice .amount { font-size: 32px; font-weight: bold; color: var(--rshb-green); margin-bottom: 10px; }
-    .deposit-choice .desc { font-size: 16px; color: #555; line-height: 1.5; }
 
     /* КВИЗ */
     #quiz-container { max-width: 800px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(10px); padding: 50px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -175,7 +149,6 @@
     }
     .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,77,36,0.5); }
 
-    /* Адаптив */
     @media (max-width: 900px) {
       .banks-grid { grid-template-columns: repeat(2, 1fr); }
       .calc-box { flex-direction: column; padding: 20px; }
@@ -188,15 +161,15 @@
   <div class="bg-blob blob-2"></div>
   <canvas id="bg-canvas"></canvas>
 
+  <!-- ВЕРХНЕЕ МЕНЮ (Убрали Проценты) -->
   <header id="main-header">
     <div class="logo-header" onclick="restart()">ПроФинансы <span>| РСХБ</span></div>
     <div class="menu-links">
       <button class="menu-btn" onclick="showScreen(1, this)">Банковская система</button>
       <button class="menu-btn" onclick="showScreen(2, this)">Россельхозбанк</button>
       <button class="menu-btn" onclick="showScreen(3, this)">Кредит</button>
-      <button class="menu-btn" onclick="showScreen(4, this)">Проценты</button>
-      <button class="menu-btn" onclick="showScreen(5, this)">Вклады</button>
-      <button class="menu-btn" onclick="showScreen(6, this)">Проверь себя</button>
+      <button class="menu-btn" onclick="showScreen(4, this)">Вклады</button>
+      <button class="menu-btn" onclick="showScreen(5, this)">Проверь себя</button>
       <button class="menu-btn home-btn" onclick="restart()">На главную</button>
     </div>
   </header>
@@ -209,7 +182,7 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 1: БАНКОВСКАЯ СИСТЕМА (Новый дизайн) -->
+  <!-- ЭКРАН 1: БАНКОВСКАЯ СИСТЕМА -->
   <section class="screen" id="screen-1">
     <h2>Как устроена банковская система</h2>
     
@@ -226,7 +199,7 @@
 
     <div class="banks-grid-title">Главные коммерческие банки России:</div>
     <div class="banks-grid">
-      <div class="bank-square rshb-highlight">
+      <div class="bank-square">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Russian_Agricultural_Bank_logo.svg/1200px-Russian_Agricultural_Bank_logo.svg.png" alt="РСХБ">
         <span>Россельхозбанк</span>
       </div>
@@ -294,145 +267,80 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 3: КРЕДИТ (Кейсы) -->
+  <!-- ЭКРАН 3: КРЕДИТ (Информация + Калькулятор) -->
   <section class="screen" id="screen-3">
     <h2>Кредит: что это</h2>
-    <div class="info-block" style="background: rgba(255,255,255,0.7); padding: 30px; border-radius: 20px; text-align: center; max-width: 800px; margin-bottom: 30px; font-size: 20px; line-height: 1.6;">
-      <p><b>Кредит</b> — это деньги в долг. Банк дает их тебе, а ты возвращаешь с процентами. Это инструмент, который помогает получить желаемое сейчас, но требует ответственности.</p>
-      <p style="margin-top:10px; color: var(--rshb-green); font-weight: bold;">Нажми на любую ситуацию ниже, чтобы узнать, стоит ли брать кредит:</p>
+    <div class="info-block">
+      <p><b>Кредит</b> — это деньги, которые банк дает тебе в долг. Их нужно обязательно вернуть, да еще и с процентами.</p>
+      <br>
+      <p>Кредит нужен, когда вещь нужна прямо сейчас, а денег не хватает (например, на новую технику, обучение или ремонт).</p>
+      <br>
+      <p>Главное правило: <b>бери кредит только тогда, когда уверен, что сможешь его платить</b>. А чтобы понять, сколько придется платить каждый месяц, попробуй рассчитать в калькуляторе ниже:</p>
     </div>
     
-    <div class="cases-container">
-      <div class="case-card" onclick="toggleCard(this)">
-        <div class="case-icon">📱</div>
-        <h3>Сломался телефон</h3>
-        <div class="case-text">
-          <p>Нужно 30 000 ₽. Кредит на год под 20%.</p>
-          <p><b>Плюс:</b> сразу пользуешься связью, платишь 2 700 ₽/мес.</p>
-          <p><b>Минус:</b> переплата 3 000 ₽.</p>
-          <p><b>Вердикт:</b> Если телефон нужен для работы/учебы — можно. Если просто хочется новинку — лучше накопить.</p>
+    <div class="calc-wrapper">
+      <div class="calc-box">
+        <div class="calc-inputs">
+          <label>Сумма кредита: <span id="val-sum">50 000</span> ₽
+            <input type="range" id="credit-sum" min="10000" max="200000" step="5000" value="50000" oninput="calcCredit()">
+          </label>
+          <label>Срок: <span id="val-term">12</span> мес.
+            <input type="range" id="credit-term" min="6" max="60" step="6" value="12" oninput="calcCredit()">
+          </label>
+          <label>Процентная ставка: <span id="val-rate">15</span>%
+            <input type="range" id="credit-rate" min="5" max="30" step="1" value="15" oninput="calcCredit()">
+          </label>
         </div>
-      </div>
-
-      <div class="case-card" onclick="toggleCard(this)">
-        <div class="case-icon">💻</div>
-        <h3>Нужен ноутбук для учебы</h3>
-        <div class="case-text">
-          <p>Стоимость 60 000 ₽. Кредит на 2 года под 15%.</p>
-          <p><b>Плюс:</b> ты учишься, делаешь проекты и получаешь навыки, которые окупят кредит.</p>
-          <p><b>Минус:</b> переплата ~9 700 ₽.</p>
-          <p><b>Вердикт:</b> Это инвестиция в себя. Если ты точно будешь использовать ноутбук для дела — кредит оправдан.</p>
-        </div>
-      </div>
-
-      <div class="case-card" onclick="toggleCard(this)">
-        <div class="case-icon">✈️</div>
-        <h3>Поездка мечты</h3>
-        <div class="case-text">
-          <p>Отпуск на 100 000 ₽. Кредит на год под 25%.</p>
-          <p><b>Плюс:</b> крутые эмоции прямо сейчас.</p>
-          <p><b>Минус:</b> переплата 12 500 ₽. Придется весь год платить по 9 300 ₽.</p>
-          <p><b>Вердикт:</b> Брать кредит на отдых — плохая идея. Эмоции пройдут, а долг останется. Лучше накопить.</p>
+        <div class="calc-result">
+          <p>Ежемесячный платеж:</p>
+          <h3 id="credit-monthly">4 500 ₽</h3>
+          <p class="calc-total">Всего вернешь: <span id="credit-total">54 000 ₽</span></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ЭКРАН 4: ПРОЦЕНТЫ -->
+  <!-- ЭКРАН 4: ВКЛАДЫ (Информация + Калькулятор) -->
   <section class="screen" id="screen-4">
-    <h2>Проценты: где платишь ты, где платят тебе</h2>
-    <p class="hint">Попробуй посчитать в калькуляторах!</p>
-    
-    <div class="toggle">
-      <button class="toggle-btn active" id="btn-credit" onclick="switchPercent('credit')">Беру кредит</button>
-      <button class="toggle-btn" id="btn-deposit" onclick="switchPercent('deposit')">Кладу вклад</button>
-    </div>
-
-    <div id="credit-info" class="percent-box">
-      <div class="calc-wrapper">
-        <div class="calc-box">
-          <div class="calc-inputs">
-            <label>Сумма кредита: <span id="val-sum">50 000</span> ₽
-              <input type="range" id="credit-sum" min="10000" max="200000" step="5000" value="50000" oninput="calcCredit()">
-            </label>
-            <label>Срок: <span id="val-term">12</span> мес.
-              <input type="range" id="credit-term" min="6" max="60" step="6" value="12" oninput="calcCredit()">
-            </label>
-            <label>Процентная ставка: <span id="val-rate">15</span>%
-              <input type="range" id="credit-rate" min="5" max="30" step="1" value="15" oninput="calcCredit()">
-            </label>
-          </div>
-          <div class="calc-result">
-            <p>Ежемесячный платеж:</p>
-            <h3 id="credit-monthly">4 500 ₽</h3>
-            <p class="calc-total">Всего вернешь: <span id="credit-total">54 000 ₽</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="deposit-info" class="percent-box" style="display: none;">
-      <div class="calc-wrapper">
-        <div class="calc-box">
-          <div class="calc-inputs">
-            <label>Сумма вклада: <span id="val-dep-sum">50 000</span> ₽
-              <input type="range" id="dep-sum" min="10000" max="500000" step="10000" value="50000" oninput="calcDeposit()">
-            </label>
-            <label>Срок: <span id="val-dep-term">12</span> мес.
-              <input type="range" id="dep-term" min="3" max="36" step="3" value="12" oninput="calcDeposit()">
-            </label>
-            <label>Ставка: <span id="val-dep-rate">8</span>%
-              <input type="range" id="dep-rate" min="5" max="20" step="1" value="8" oninput="calcDeposit()">
-            </label>
-          </div>
-          <div class="calc-result">
-            <p>Твой доход:</p>
-            <h3 id="dep-income">3 000 ₽</h3>
-            <p class="calc-total">В конце заберешь: <span id="dep-total">53 000 ₽</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ЭКРАН 5: ВКЛАДЫ (Интерактив) -->
-  <section class="screen" id="screen-5">
     <h2>Вклады: как сохранить и заработать</h2>
-    <div class="info-block" style="max-width: 800px; text-align: center; margin-bottom: 30px;">
-      <p><b>Вклад</b> — это когда ты даешь деньги банку на хранение, а он платит тебе за это проценты. Твои деньги работают!</p>
-      <p style="margin-top: 10px; font-weight: bold; color: var(--rshb-green);">Выбери, как ты хочешь хранить 100 000 ₽ на 2 года под 10%:</p>
+    <div class="info-block">
+      <p><b>Вклад (или депозит)</b> — это когда ты кладешь свои деньги в банк на хранение, а банк за это платит тебе проценты.</p>
+      <br>
+      <p>Вклады бывают с <b>капитализацией</b>. Это когда проценты прибавляются к твоей сумме, и в следующем месяце начисляются уже на бОльшую сумму. Это помогает деньгам расти быстрее, как снежный ком.</p>
+      <br>
+      <p>Хранить деньги в банке безопасно: государство страхует вклады на сумму до 1,4 млн рублей (система АСВ). Если банк даже обанкротится, тебе вернут деньги.</p>
     </div>
 
-    <div class="deposit-demo">
-      <div class="deposit-choice" onclick="toggleDeposit(this)">
-        <h3>Без капитализации</h3>
-        <div class="amount">100 000 ₽</div>
-        <div class="desc">Проценты (по 10 000 ₽ в год) начисляются на отдельный счет и не добавляются к основному вкладу.</div>
-        <div class="case-text" style="margin-top: 15px;">
-          <p style="color: var(--rshb-green); font-weight: bold; font-size: 20px;">Через 2 года: 120 000 ₽</p>
-          <p>Ты получишь 20 000 ₽ чистой прибыли.</p>
+    <div class="calc-wrapper">
+      <div class="calc-box">
+        <div class="calc-inputs">
+          <label>Сумма вклада: <span id="val-dep-sum">50 000</span> ₽
+            <input type="range" id="dep-sum" min="10000" max="500000" step="10000" value="50000" oninput="calcDeposit()">
+          </label>
+          <label>Срок: <span id="val-dep-term">12</span> мес.
+            <input type="range" id="dep-term" min="3" max="36" step="3" value="12" oninput="calcDeposit()">
+          </label>
+          <label>Ставка: <span id="val-dep-rate">8</span>%
+            <input type="range" id="dep-rate" min="5" max="20" step="1" value="8" oninput="calcDeposit()">
+          </label>
         </div>
-      </div>
-
-      <div class="deposit-choice" onclick="toggleDeposit(this)">
-        <h3>С капитализацией</h3>
-        <div class="amount">100 000 ₽</div>
-        <div class="desc">Проценты прибавляются к сумме вклада. В следующем году проценты капают уже на бОльшую сумму.</div>
-        <div class="case-text" style="margin-top: 15px;">
-          <p style="color: var(--rshb-green); font-weight: bold; font-size: 20px;">Через 2 года: 121 000 ₽</p>
-          <p>Ты получишь 21 000 ₽ прибыли. На 1 000 ₽ больше! Вот такая магия сложного процента.</p>
+        <div class="calc-result">
+          <p>Твой доход:</p>
+          <h3 id="dep-income">3 000 ₽</h3>
+          <p class="calc-total">В конце заберешь: <span id="dep-total">53 000 ₽</span></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ЭКРАН 6: КВИЗ -->
-  <section class="screen" id="screen-6">
+  <!-- ЭКРАН 5: КВИЗ -->
+  <section class="screen" id="screen-5">
     <h2>Проверь себя</h2>
     <div id="quiz-container"></div>
   </section>
 
-  <section class="screen" id="screen-7">
+  <!-- ЭКРАН 6: ФИНАЛ -->
+  <section class="screen" id="screen-6">
     <div class="start-box">
       <h1 class="main-title" style="font-size: 70px;">Молодец!</h1>
       <p class="subtitle">Ты прошел все разделы. Теперь ты знаешь, как работает банк, зачем нужны проценты и чем вклад отличается от кредита.</p>
@@ -454,7 +362,7 @@
         document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
         btnElement.classList.add('active');
       }
-      if (n === 6) renderQuiz();
+      if (n === 5) renderQuiz(); // Квиз теперь на 5-м экране
       window.scrollTo(0, 0);
     }
 
@@ -465,30 +373,7 @@
       showScreen(0);
     }
 
-    function toggleCard(el) {
-      el.classList.toggle('open');
-    }
-    
-    // Для интерактива вкладов (чтобы открывался только один)
-    function toggleDeposit(el) {
-      const isOpen = el.classList.contains('open');
-      document.querySelectorAll('.deposit-choice').forEach(c => c.classList.remove('open'));
-      if (!isOpen) el.classList.add('open');
-    }
-
-    function switchPercent(type) {
-      const creditInfo = document.getElementById('credit-info');
-      const depositInfo = document.getElementById('deposit-info');
-      const btnCredit = document.getElementById('btn-credit');
-      const btnDeposit = document.getElementById('btn-deposit');
-      if (type === 'credit') {
-        btnCredit.classList.add('active'); btnDeposit.classList.remove('active');
-        creditInfo.style.display = 'block'; depositInfo.style.display = 'none';
-      } else {
-        btnDeposit.classList.add('active'); btnCredit.classList.remove('active');
-        creditInfo.style.display = 'none'; depositInfo.style.display = 'block';
-      }
-    }
+    function toggleCard(el) { el.classList.toggle('open'); }
 
     function calcCredit() {
       const sum = +document.getElementById('credit-sum').value;
@@ -532,7 +417,7 @@
     function renderQuiz() {
       const container = document.getElementById('quiz-container');
       if (currentQuestion >= quizData.length) {
-        showScreen(7);
+        showScreen(6); // Финальный экран теперь 6-й
         document.getElementById('main-header').classList.remove('visible');
         return;
       }
@@ -562,7 +447,7 @@
       setTimeout(() => { currentQuestion++; renderQuiz(); }, 2500);
     }
 
-    // ===== Анимация Фона (ЗОЛОТЫЕ СВЕТЛЯЧКИ КАК НА ХМЕЛЕ) =====
+    // ===== Анимация Фона (ЗОЛОТЫЕ СВЕТЛЯЧКИ С БЕЛЫМ ЯДРОМ) =====
     function initBackground() {
       const canvas = document.getElementById('bg-canvas');
       const ctx = canvas.getContext('2d');
@@ -581,8 +466,8 @@
           y: Math.random() * height,
           vx: (Math.random() - 0.5) * 0.3,
           vy: (Math.random() - 0.5) * 0.3,
-          radius: Math.random() * 3 + 2,
-          pulse: Math.random() * Math.PI * 2 // Для пульсации
+          radius: Math.random() * 1.5 + 0.5, // Маленькое ядро
+          pulse: Math.random() * Math.PI * 2
         });
       }
 
@@ -593,23 +478,24 @@
         particles.forEach(p => {
           p.x += p.vx;
           p.y += p.vy;
-          p.pulse += 0.02; // Скорость пульсации
+          p.pulse += 0.02;
 
           if (p.x < 0 || p.x > width) p.vx *= -1;
           if (p.y < 0 || p.y > height) p.vy *= -1;
 
-          // Вычисляем размер с учетом пульсации
-          let currentRadius = p.radius + Math.sin(p.pulse) * 1.5;
+          // Размер пульсации
+          let currentRadius = p.radius + Math.sin(p.pulse) * 1.0;
 
-          // Создаем градиентное свечение (как на Хмеле)
-          let gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, currentRadius * 4);
-          gradient.addColorStop(0, 'rgba(253, 185, 19, 1)');   // Яркий центр (золотой)
-          gradient.addColorStop(0.3, 'rgba(253, 185, 19, 0.8)');
-          gradient.addColorStop(1, 'rgba(253, 185, 19, 0)');   // Прозрачные края
+          // Создаем градиентное свечение (белый центр -> золото -> прозрачность)
+          let gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, currentRadius * 8);
+          gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');     // Белый центр
+          gradient.addColorStop(0.2, 'rgba(253, 185, 19, 1)');    // Золотой ореол
+          gradient.addColorStop(0.5, 'rgba(253, 185, 19, 0.5)');  // Затухание золота
+          gradient.addColorStop(1, 'rgba(253, 185, 19, 0)');      // Прозрачный край
 
           ctx.fillStyle = gradient;
           ctx.beginPath();
-          ctx.arc(p.x, p.y, currentRadius * 4, 0, Math.PI * 2);
+          ctx.arc(p.x, p.y, currentRadius * 8, 0, Math.PI * 2);
           ctx.fill();
         });
       }
