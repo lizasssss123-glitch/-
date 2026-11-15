@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ПроФинансы</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="progress-bar"><div id="progress"></div></div>
+
+  <!-- ЭКРАН 0: СТАРТ -->
+  <section class="screen active" id="screen-0">
+    <div class="start-box">
+      <h1>ПроФинансы</h1>
+      <p class="subtitle">Узнай, как работает банк — за 5 минут</p>
+      <button class="btn-main" onclick="showScreen(1)">Начать</button>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 1: БАНКОВСКАЯ СИСТЕМА -->
+  <section class="screen" id="screen-1">
+    <h2>Как устроена банковская система</h2>
+    <p class="hint">Нажми на карточку, чтобы узнать больше</p>
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Банк России</h3>
+        <p class="card-text">«Банк банков». Следит за стабильностью всей системы, выдаёт лицензии коммерческим банкам.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Коммерческий банк</h3>
+        <p class="card-text">Принимает вклады, выдаёт кредиты, проводит платежи. Работает ради прибыли.</p>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn-back" onclick="showScreen(0)">Назад</button>
+      <button class="btn-next" onclick="showScreen(2)">Дальше</button>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 2: РОССЕЛЬХОЗБАНК -->
+  <section class="screen" id="screen-2">
+    <h2>Россельхозбанк: кто это</h2>
+    <p class="hint">Нажми на плитку, чтобы узнать факт</p>
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Основан в 2000 году</h3>
+        <p class="card-text">Создан для развития агропромышленного сектора и сельских территорий.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Универсальный банк</h3>
+        <p class="card-text">Не только для фермеров: кредиты, вклады, карты, ипотека — для всех.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Системно значимый</h3>
+        <p class="card-text">Входит в топ крупнейших банков России, рейтинг AA(RU).</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Карта с 14 лет</h3>
+        <p class="card-text">Дебетовую карту можно оформить с 14 лет — только по паспорту.</p>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn-back" onclick="showScreen(1)">Назад</button>
+      <button class="btn-next" onclick="showScreen(3)">Дальше</button>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 3: КРЕДИТ -->
+  <section class="screen" id="screen-3">
+    <h2>Кредит: что это</h2>
+    <p class="hint">Кредит — деньги в долг, которые надо вернуть с процентами</p>
+    <div class="scheme">Банк → ты → банк + процент</div>
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Возвратность</h3>
+        <p class="card-text">Взятую сумму обязательно нужно вернуть.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Срочность</h3>
+        <p class="card-text">Вернуть нужно в срок, указанный в договоре.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Платность</h3>
+        <p class="card-text">За пользование деньгами платишь проценты.</p>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn-back" onclick="showScreen(2)">Назад</button>
+      <button class="btn-next" onclick="showScreen(4)">Дальше</button>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 4: ПРОЦЕНТЫ -->
+  <section class="screen" id="screen-4">
+    <h2>Проценты: где платишь ты, где платят тебе</h2>
+    <div class="toggle">
+      <button class="toggle-btn active" id="btn-credit" onclick="switchPercent('credit')">Беру кредит</button>
+      <button class="toggle-btn" id="btn-deposit" onclick="switchPercent('deposit')">Кладу вклад</button>
+    </div>
+    <div class="percent-box" id="percent-box">
+      <p class="percent-scheme">Ты → Банк: сумма + проценты</p>
+      <p class="percent-example">Взял 10 000 ₽ на год под 10% → вернёшь 11 000 ₽</p>
+    </div>
+    <div class="nav">
+      <button class="btn-back" onclick="showScreen(3)">Назад</button>
+      <button class="btn-next" onclick="showScreen(5)">Дальше</button>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 5: ВКЛАДЫ -->
+  <section class="screen" id="screen-5">
+    <h2>Вклады: как сохранить и чуть заработать</h2>
+    <p class="hint">Нажми на плитку, чтобы узнать больше</p>
+    <div class="cards">
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Зачем вклад</h3>
+        <p class="card-text">Безопаснее, чем дома. Банк платит процент, деньги защищены системой страхования вкладов.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Простой процент</h3>
+        <p class="card-text">10 000 ₽ под 10% на год → через год 11 000 ₽.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Капитализация</h3>
+        <p class="card-text">Проценты прибавляются к вкладу, и следующий процент капает на большую сумму. За год выйдет чуть больше 11 000 ₽.</p>
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn-back" onclick="showScreen(4)">Назад</button>
+      <button class="btn-next" onclick="showScreen(6)">Дальше</button>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 6: КВИЗ -->
+  <section class="screen" id="screen-6">
+    <h2>Проверь себя</h2>
+    <div id="quiz-container"></div>
+    <div class="nav">
+      <button class="btn-back" onclick="showScreen(5)">Назад</button>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 7: ФИНАЛ -->
+  <section class="screen" id="screen-7">
+    <div class="final-box">
+      <h1>Молодец!</h1>
+      <p class="subtitle">Ты прошёл все разделы. Теперь ты знаешь, как работает банк, зачем нужны проценты и чем вклад отличается от кредита.</p>
+      <button class="btn-main" onclick="restart()">Начать заново</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
