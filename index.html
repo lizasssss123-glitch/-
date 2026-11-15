@@ -10,9 +10,8 @@
       --rshb-green: #005A2B;
       --rshb-green-light: #008f45;
       --rshb-yellow: #FDB913;
-      --rshb-light: #E8F5E9;
       --white: #ffffff;
-      --glass-bg: rgba(255, 255, 255, 0.85); /* Матовое стекло */
+      --glass-bg: rgba(255, 255, 255, 0.85);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,59 +21,39 @@
       color: #1a1a1a;
       min-height: 100vh;
       overflow-x: hidden;
-      /* Красивый градиент вместо белого фона */
       background: linear-gradient(135deg, #f0f7f2 0%, #e0f0e5 50%, #cce8d5 100%);
       background-attachment: fixed;
     }
 
     /* Мягкие светящиеся пятна на фоне */
     .bg-blob {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      z-index: -1;
-      animation: floatBlob 15s infinite alternate ease-in-out;
+      position: fixed; border-radius: 50%; filter: blur(80px);
+      z-index: -1; animation: floatBlob 15s infinite alternate ease-in-out;
     }
-    .blob-1 {
-      width: 600px; height: 600px;
-      background: rgba(253, 185, 19, 0.15); /* Желтый */
-      top: -100px; left: -100px;
-    }
-    .blob-2 {
-      width: 500px; height: 500px;
-      background: rgba(0, 90, 43, 0.1); /* Зеленый */
-      bottom: -50px; right: -100px;
-      animation-delay: -5s;
-    }
+    .blob-1 { width: 600px; height: 600px; background: rgba(253, 185, 19, 0.25); top: -100px; left: -100px; }
+    .blob-2 { width: 500px; height: 500px; background: rgba(0, 90, 43, 0.15); bottom: -50px; right: -100px; animation-delay: -5s; }
     @keyframes floatBlob {
       0% { transform: translate(0, 0) scale(1); }
       100% { transform: translate(50px, 50px) scale(1.1); }
     }
 
-    /* Фон с точками (добавляет текстуру) */
+    /* Фон с золотыми светлячками */
     #bg-canvas {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       z-index: -1; pointer-events: none;
-      opacity: 0.6;
     }
 
     /* ВЕРХНЕЕ МЕНЮ */
     header {
       position: fixed; top: 0; left: 0; width: 100%;
-      background: rgba(0, 90, 43, 0.95); /* Темно-зеленый с легкой прозрачностью */
-      backdrop-filter: blur(10px);
-      padding: 15px 40px;
-      display: none;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      background: rgba(0, 90, 43, 0.95); backdrop-filter: blur(10px);
+      padding: 15px 40px; display: none; justify-content: space-between;
+      align-items: center; z-index: 100; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
     header.visible { display: flex; animation: slideDown 0.4s ease; }
     @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
     
-    .logo-header { color: var(--white); font-size: 24px; font-weight: bold; }
+    .logo-header { color: var(--white); font-size: 24px; font-weight: bold; cursor: pointer; }
     .logo-header span { color: var(--rshb-yellow); }
 
     .menu-links { display: flex; gap: 8px; }
@@ -83,19 +62,14 @@
       font-size: 16px; font-weight: 600; padding: 10px 15px;
       cursor: pointer; border-radius: 8px; transition: all 0.2s;
     }
-    .menu-btn:hover, .menu-btn.active {
-      background: var(--rshb-yellow); color: var(--rshb-green);
-    }
+    .menu-btn:hover, .menu-btn.active { background: var(--rshb-yellow); color: var(--rshb-green); }
+    .menu-btn.home-btn { background: rgba(255,255,255,0.1); margin-left: 10px; border: 1px solid var(--rshb-yellow); }
+    .menu-btn.home-btn:hover { background: var(--rshb-yellow); }
 
     /* ЭКРАНЫ */
     .screen {
-      display: none;
-      min-height: 100vh;
-      padding: 110px 40px 60px;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      z-index: 1;
+      display: none; min-height: 100vh; padding: 110px 40px 60px;
+      flex-direction: column; align-items: center; position: relative; z-index: 1;
     }
     .screen.active { display: flex; animation: fadeIn 0.4s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
@@ -103,14 +77,9 @@
     /* СТАРТ И ФИНАЛ */
     #screen-0, #screen-7 { justify-content: center; padding-top: 40px; }
     .start-box {
-      text-align: center;
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      padding: 80px 60px;
-      border-radius: 30px;
-      box-shadow: 0 15px 35px rgba(0, 90, 43, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      max-width: 800px;
+      text-align: center; background: var(--glass-bg); backdrop-filter: blur(15px);
+      padding: 80px 60px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0, 90, 43, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5); max-width: 800px;
     }
     h1.main-title { font-size: 100px; color: var(--rshb-green); margin-bottom: 10px; letter-spacing: -2px; }
     .subtitle { font-size: 32px; color: #444; margin-bottom: 50px; }
@@ -119,38 +88,36 @@
     h2 { font-size: 44px; color: var(--rshb-green); margin-bottom: 15px; text-align: center; }
     .hint { font-size: 22px; color: #444; margin-bottom: 40px; text-align: center; max-width: 800px; }
 
-    /* КАРТОЧКИ (Матовое стекло) */
-    .cards { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; max-width: 1000px; }
+    /* КАРТОЧКИ */
+    .cards { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; max-width: 1100px; }
     .card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-radius: 20px;
-      padding: 30px;
-      min-width: 260px; max-width: 340px;
-      cursor: pointer; transition: all 0.3s;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      border-bottom: 4px solid transparent;
+      background: var(--glass-bg); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 20px;
+      padding: 30px; min-width: 280px; max-width: 340px; cursor: pointer; transition: all 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05); border-bottom: 4px solid transparent;
     }
     .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 90, 43, 0.15); border-bottom-color: var(--rshb-yellow); }
     .card.open { border-bottom-color: var(--rshb-green); background: #fff; }
-    .card h3 { font-size: 26px; color: var(--rshb-green); }
+    .card h3 { font-size: 24px; color: var(--rshb-green); }
     .card-text {
-      font-size: 18px; color: #333; line-height: 1.6;
+      font-size: 17px; color: #333; line-height: 1.6;
       max-height: 0; overflow: hidden; opacity: 0; transition: all 0.4s ease;
     }
-    .card.open .card-text { max-height: 500px; opacity: 1; margin-top: 15px; }
+    .card.open .card-text { max-height: 800px; opacity: 1; margin-top: 15px; }
+    
+    /* Картинки в карточках */
+    .card-img { width: 100%; height: 140px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
     
     /* Логотипы */
     .logos { display: flex; gap: 15px; margin-top: 15px; align-items: center; flex-wrap: wrap; }
-    .logos img { height: 35px; object-fit: contain; }
+    .logos img { height: 30px; object-fit: contain; }
 
-    /* КАЛЬКУЛЯТОРЫ (Матовое стекло) */
+    /* КАЛЬКУЛЯТОРЫ (Теперь живут на странице Проценты) */
     .calc-box {
       display: flex; background: var(--glass-bg); backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 20px; 
       padding: 40px; gap: 40px; max-width: 900px; width: 100%;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-top: 20px;
     }
     .calc-inputs { flex: 1; display: flex; flex-direction: column; gap: 25px; }
     .calc-inputs label { font-size: 20px; font-weight: 600; color: var(--rshb-green); display: flex; flex-direction: column; gap: 10px; }
@@ -165,7 +132,7 @@
     .calc-total span { font-weight: bold; color: var(--rshb-yellow); font-size: 22px; }
 
     /* ПЕРЕКЛЮЧАТЕЛЬ */
-    .toggle { display: flex; gap: 20px; margin-bottom: 40px; }
+    .toggle { display: flex; gap: 20px; margin-bottom: 20px; }
     .toggle-btn {
       font-size: 22px; padding: 15px 40px; border: 2px solid var(--rshb-green);
       background: rgba(255, 255, 255, 0.7); color: var(--rshb-green); border-radius: 12px;
@@ -173,10 +140,17 @@
     }
     .toggle-btn.active { background: var(--rshb-green); color: var(--white); box-shadow: 0 4px 15px rgba(0,90,43,0.3); }
     .percent-box { width: 100%; display: flex; flex-direction: column; align-items: center; }
-    .percent-scheme { font-size: 32px; color: var(--rshb-green); font-weight: bold; margin-bottom: 20px; }
-    .percent-example { font-size: 22px; color: #444; text-align: center; max-width: 700px; line-height: 1.5; }
+    
+    /* ТЕКСТОВЫЕ БЛОКИ (для Кредита и Вкладов) */
+    .info-block {
+      background: var(--glass-bg); backdrop-filter: blur(10px);
+      padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.6);
+      max-width: 800px; font-size: 20px; line-height: 1.7; color: #333;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 20px;
+    }
+    .info-block b { color: var(--rshb-green); }
 
-    /* КВИЗ (Матовое стекло) */
+    /* КВИЗ */
     #quiz-container { 
       max-width: 800px; width: 100%; background: var(--glass-bg); backdrop-filter: blur(10px);
       padding: 50px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
@@ -205,14 +179,14 @@
 </head>
 <body>
 
-  <!-- Фоновые пятна -->
+  <!-- Фоновые пятна и светлячки -->
   <div class="bg-blob blob-1"></div>
   <div class="bg-blob blob-2"></div>
   <canvas id="bg-canvas"></canvas>
 
   <!-- ВЕРХНЕЕ МЕНЮ -->
   <header id="main-header">
-    <div class="logo-header">ПроФинансы <span>| РСХБ</span></div>
+    <div class="logo-header" onclick="restart()">ПроФинансы <span>| РСХБ</span></div>
     <div class="menu-links">
       <button class="menu-btn" onclick="showScreen(1, this)">Банковская система</button>
       <button class="menu-btn" onclick="showScreen(2, this)">Россельхозбанк</button>
@@ -220,6 +194,7 @@
       <button class="menu-btn" onclick="showScreen(4, this)">Проценты</button>
       <button class="menu-btn" onclick="showScreen(5, this)">Вклады</button>
       <button class="menu-btn" onclick="showScreen(6, this)">Проверь себя</button>
+      <button class="menu-btn home-btn" onclick="restart()">На главную</button>
     </div>
   </header>
 
@@ -239,16 +214,22 @@
     <div class="cards">
       <div class="card" onclick="toggleCard(this)">
         <h3>Банк России (ЦБ)</h3>
-        <p class="card-text">Это «банк банков». Он не работает с обычными людьми. Его задача — следить за стабильностью всей финансовой системы страны, контролировать инфляцию и выдавать лицензии коммерческим банкам.</p>
+        <!-- Картинка здания ЦБ -->
+        <p class="card-text">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/CBRF_building.jpg/640px-CBRF_building.jpg" alt="Здание ЦБ" class="card-img">
+          Это «банк банков». Он не работает с обычными людьми. Его задача — следить за стабильностью всей финансовой системы страны, контролировать инфляцию и выдавать лицензии коммерческим банкам.
+        </p>
       </div>
       <div class="card" onclick="toggleCard(this)">
         <h3>Коммерческие банки</h3>
-        <p class="card-text">Они работают для людей и бизнеса: принимают вклады, выдают кредиты, проводят платежи. Примеры: <b>Россельхозбанк</b>, Сбербанк, ВТБ. <br><br>
-        <span class="logos">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Russian_Agricultural_Bank_logo.svg/1200px-Russian_Agricultural_Bank_logo.svg.png" alt="РСХБ">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sberbank_Logo_2020.svg/1200px-Sberbank_Logo_2020.svg.png" alt="Сбер">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/VTB_Logo_2018.svg/1200px-VTB_Logo_2018.svg.png" alt="ВТБ">
-        </span>
+        <p class="card-text">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" alt="Банк" class="card-img">
+          Они работают для людей и бизнеса: принимают вклады, выдают кредиты, проводят платежи. Примеры: <b>Россельхозбанк</b>, Сбербанк, ВТБ, Тинькофф. <br><br>
+          <span class="logos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Russian_Agricultural_Bank_logo.svg/1200px-Russian_Agricultural_Bank_logo.svg.png" alt="РСХБ">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sberbank_Logo_2020.svg/1200px-Sberbank_Logo_2020.svg.png" alt="Сбер">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/VTB_Logo_2018.svg/1200px-VTB_Logo_2018.svg.png" alt="ВТБ">
+          </span>
         </p>
       </div>
     </div>
@@ -275,45 +256,62 @@
         <h3>Карта с 14 лет</h3>
         <p class="card-text">Дебетовую карту можно оформить уже с 14 лет — только по паспорту. Очень удобно для первых накоплений.</p>
       </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Сельская ипотека</h3>
+        <p class="card-text">РСХБ — главный оператор программы «Сельская ипотека» со ставкой от 3%. Помогает семьям переехать в село или построить свой дом.</p>
+      </div>
+      <div class="card" onclick="toggleCard(this)">
+        <h3>Поддержка села</h3>
+        <p class="card-text">Банк финансирует фермеров, строительство теплиц и покупку сельхозтехники. Благодаря этому на наших столах есть свежие продукты.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ЭКРАН 3: КРЕДИТ -->
+  <!-- ЭКРАН 3: КРЕДИТ (Только информация) -->
   <section class="screen" id="screen-3">
     <h2>Кредит: что это</h2>
-    <p class="hint">Кредит — деньги в долг, которые надо вернуть с процентами. Попробуй рассчитать!</p>
-    <div class="calc-box">
-      <div class="calc-inputs">
-        <label>Сумма кредита: <span id="val-sum">50 000</span> ₽
-          <input type="range" id="credit-sum" min="10000" max="200000" step="5000" value="50000" oninput="calcCredit()">
-        </label>
-        <label>Срок: <span id="val-term">12</span> мес.
-          <input type="range" id="credit-term" min="6" max="60" step="6" value="12" oninput="calcCredit()">
-        </label>
-        <label>Процентная ставка: <span id="val-rate">15</span>%
-          <input type="range" id="credit-rate" min="5" max="30" step="1" value="15" oninput="calcCredit()">
-        </label>
-      </div>
-      <div class="calc-result">
-        <p>Ежемесячный платеж:</p>
-        <h3 id="credit-monthly">4 500 ₽</h3>
-        <p class="calc-total">Всего вернешь: <span id="credit-total">54 000 ₽</span></p>
-      </div>
+    <div class="info-block">
+      <p><b>Кредит</b> — это деньги, которые банк дает тебе в долг. Их нужно обязательно вернуть, да еще и с процентами.</p>
+      <br>
+      <p>Кредит нужен, когда вещь нужна прямо сейчас, а денег не хватает (например, на новую технику или обучение).</p>
+      <br>
+      <p>Главное правило: <b>бери кредит только тогда, когда уверен, что сможешь его платить</b>. А если хочешь узнать, как считаются проценты — переходи в следующий раздел!</p>
     </div>
   </section>
 
-  <!-- ЭКРАН 4: ПРОЦЕНТЫ -->
+  <!-- ЭКРАН 4: ПРОЦЕНТЫ (Калькуляторы) -->
   <section class="screen" id="screen-4">
     <h2>Проценты: где платишь ты, где платят тебе</h2>
-    <p class="hint">В кредите проценты платишь ты. А во вкладе — банк платит тебе!</p>
+    <p class="hint">Попробуй посчитать в калькуляторах!</p>
+    
     <div class="toggle">
       <button class="toggle-btn active" id="btn-credit" onclick="switchPercent('credit')">Беру кредит</button>
       <button class="toggle-btn" id="btn-deposit" onclick="switchPercent('deposit')">Кладу вклад</button>
     </div>
+
+    <!-- Калькулятор Кредита -->
     <div id="credit-info" class="percent-box">
-      <p class="percent-scheme">Ты → Банк: сумма + проценты</p>
-      <p class="percent-example">Банк дает тебе деньги, а ты возвращаешь их с процентами. Чем дольше срок — тем больше переплата.</p>
+      <div class="calc-box">
+        <div class="calc-inputs">
+          <label>Сумма кредита: <span id="val-sum">50 000</span> ₽
+            <input type="range" id="credit-sum" min="10000" max="200000" step="5000" value="50000" oninput="calcCredit()">
+          </label>
+          <label>Срок: <span id="val-term">12</span> мес.
+            <input type="range" id="credit-term" min="6" max="60" step="6" value="12" oninput="calcCredit()">
+          </label>
+          <label>Процентная ставка: <span id="val-rate">15</span>%
+            <input type="range" id="credit-rate" min="5" max="30" step="1" value="15" oninput="calcCredit()">
+          </label>
+        </div>
+        <div class="calc-result">
+          <p>Ежемесячный платеж:</p>
+          <h3 id="credit-monthly">4 500 ₽</h3>
+          <p class="calc-total">Всего вернешь: <span id="credit-total">54 000 ₽</span></p>
+        </div>
+      </div>
     </div>
+
+    <!-- Калькулятор Вклада -->
     <div id="deposit-info" class="percent-box" style="display: none;">
       <div class="calc-box">
         <div class="calc-inputs">
@@ -336,23 +334,15 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 5: ВКЛАДЫ -->
+  <!-- ЭКРАН 5: ВКЛАДЫ (Только информация) -->
   <section class="screen" id="screen-5">
     <h2>Вклады: как сохранить и чуть заработать</h2>
-    <p class="hint">Нажми на плитку, чтобы узнать больше</p>
-    <div class="cards">
-      <div class="card" onclick="toggleCard(this)">
-        <h3>Зачем вклад</h3>
-        <p class="card-text">Безопаснее, чем хранить деньги дома. Банк платит процент за то, что ты даешь ему деньги попользоваться. К тому же, вклады застрахованы государством (АСВ) до 1,4 млн рублей.</p>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <h3>Простой процент</h3>
-        <p class="card-text">Ты положил 10 000 ₽ под 10% на год. Через год заберешь 11 000 ₽. Процент начисляется только на начальную сумму.</p>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <h3>Капитализация</h3>
-        <p class="card-text">Это магия сложного процента. Проценты прибавляются к вкладу каждый месяц, и в следующем месяце начисляются уже на большую сумму. За год выйдет чуть больше 11 000 ₽.</p>
-      </div>
+    <div class="info-block">
+      <p><b>Вклад (или депозит)</b> — это когда ты кладешь свои деньги в банк на хранение, а банк за это платит тебе проценты.</p>
+      <br>
+      <p>Вклады бывают с <b>капитализацией</b>. Это когда проценты прибавляются к твоей сумме, и в следующем месяце начисляются уже на бОльшую сумму. Это помогает деньгам расти быстрее!</p>
+      <br>
+      <p>Хранить деньги в банке безопасно: государство страхует вклады на сумму до 1,4 млн рублей. Если банк даже обанкротится, тебе вернут деньги.</p>
     </div>
   </section>
 
@@ -504,7 +494,7 @@
       setTimeout(() => { currentQuestion++; renderQuiz(); }, 2500);
     }
 
-    // ===== Анимация Фона (Точки) =====
+    // ===== Анимация Фона (Золотые светлячки) =====
     function initBackground() {
       const canvas = document.getElementById('bg-canvas');
       const ctx = canvas.getContext('2d');
@@ -517,13 +507,14 @@
       });
 
       const particles = [];
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < 50; i++) {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          radius: Math.random() * 4 + 1.5
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          radius: Math.random() * 2.5 + 1, // Размер
+          alpha: Math.random() * 0.5 + 0.5
         });
       }
 
@@ -531,14 +522,18 @@
         requestAnimationFrame(animate);
         ctx.clearRect(0, 0, width, height);
         
-        particles.forEach((p, i) => {
+        particles.forEach(p => {
           p.x += p.vx;
           p.y += p.vy;
 
           if (p.x < 0 || p.x > width) p.vx *= -1;
           if (p.y < 0 || p.y > height) p.vy *= -1;
 
-          ctx.fillStyle = i % 3 === 0 ? 'rgba(253, 185, 19, 0.4)' : 'rgba(0, 90, 43, 0.3)';
+          // Золотой цвет с эффектом свечения
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = 'rgba(253, 185, 19, 1)';
+          ctx.fillStyle = `rgba(253, 185, 19, ${p.alpha})`;
+          
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
           ctx.fill();
