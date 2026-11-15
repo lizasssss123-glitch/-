@@ -10,7 +10,7 @@
       --rshb-green-light: #007d38;
       --rshb-yellow: #FDB913;
       --white: #ffffff;
-      --glass-bg: rgba(255, 255, 255, 0.92); /* Чуть плотнее для лучшей читаемости */
+      --glass-bg: rgba(255, 255, 255, 0.92);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,22 +20,16 @@
       color: #1a1a1a;
       min-height: 100vh;
       overflow-x: hidden;
-      /* НОВЫЙ БОЛЕЕ НАСЫЩЕННЫЙ ФОН (Изумруд с переходом в золотистый) */
       background: linear-gradient(145deg, #b2d8c3 0%, #80c49a 40%, #d4c789 100%);
       background-attachment: fixed;
     }
 
-    /* Пятна на фоне (сделали их ярче) */
     .bg-blob { position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; animation: floatBlob 25s infinite alternate ease-in-out; }
     .blob-1 { width: 900px; height: 900px; background: rgba(253, 185, 19, 0.25); top: -300px; left: -200px; }
     .blob-2 { width: 700px; height: 700px; background: rgba(0, 77, 36, 0.25); bottom: -200px; right: -200px; animation-delay: -10s; }
     .blob-3 { width: 500px; height: 500px; background: rgba(255, 255, 255, 0.3); top: 30%; left: 40%; animation-delay: -5s; }
-    @keyframes floatBlob { 
-      0% { transform: translate(0, 0) scale(1); } 
-      100% { transform: translate(100px, 80px) scale(1.1); } 
-    }
+    @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(100px, 80px) scale(1.1); } }
 
-    /* ВЕРХНЕЕ МЕНЮ */
     header {
       position: fixed; top: 0; left: 0; width: 100%; background: rgba(0, 77, 36, 0.95); backdrop-filter: blur(10px);
       padding: 15px 40px; display: none; justify-content: space-between; align-items: center; z-index: 100; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -50,12 +44,10 @@
     .menu-btn.home-btn { background: rgba(255,255,255,0.1); margin-left: 10px; border: 1px solid var(--rshb-yellow); }
     .menu-btn.home-btn:hover { background: var(--rshb-yellow); }
 
-    /* ЭКРАНЫ */
     .screen { display: none; min-height: 100vh; padding: 110px 40px 60px; flex-direction: column; align-items: center; position: relative; z-index: 1; }
     .screen.active { display: flex; animation: fadeIn 0.4s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* СТАРТ И ФИНАЛ */
     #screen-0, #screen-6 { justify-content: center; padding-top: 40px; }
     .start-box { text-align: center; background: var(--glass-bg); backdrop-filter: blur(15px); padding: 80px 60px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0, 77, 36, 0.2); border: 1px solid rgba(255, 255, 255, 0.7); max-width: 800px; }
     h1.main-title { font-size: 100px; color: var(--rshb-green); margin-bottom: 10px; letter-spacing: -2px; }
@@ -63,7 +55,6 @@
     h2 { font-size: 44px; color: var(--rshb-green); margin-bottom: 15px; text-align: center; }
     .hint { font-size: 22px; color: #222; margin-bottom: 40px; text-align: center; max-width: 800px; font-weight: 500; }
 
-    /* СЕТКА БАНКОВ */
     .bank-intro { display: flex; gap: 20px; max-width: 1000px; width: 100%; margin-bottom: 30px; flex-wrap: wrap; justify-content: center; }
     .intro-card { background: var(--glass-bg); backdrop-filter: blur(10px); padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.8); flex: 1; min-width: 300px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
     .intro-card h3 { color: var(--rshb-green); font-size: 24px; margin-bottom: 15px; }
@@ -71,12 +62,22 @@
     
     .banks-grid-title { font-size: 28px; color: var(--rshb-green); margin: 20px 0 20px; font-weight: bold; text-shadow: 1px 1px 2px rgba(255,255,255,0.5); }
     .banks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 1000px; width: 100%; }
-    .bank-square { background: var(--glass-bg); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 16px; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.08); position: relative; }
-    .bank-square:hover { transform: translateY(-5px); border-color: var(--rshb-yellow); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
     
-    /* Увеличенные логотипы */
+    /* Стили для кликабельных квадратиков (ссылок) */
+    .bank-square { 
+      background: var(--glass-bg); border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 16px; 
+      padding: 20px 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; 
+      transition: all 0.3s; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.08); position: relative;
+      text-decoration: none; /* Убираем подчеркивание ссылки */
+      color: inherit; /* Наследуем цвет текста */
+    }
+    .bank-square:hover { 
+      transform: translateY(-5px); 
+      border-color: var(--rshb-yellow); 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    }
+    
     .bank-square img { width: 100px; height: 100px; object-fit: contain; }
-    
     .bank-square .fallback-text { display: none; font-weight: bold; color: var(--rshb-green); font-size: 16px; text-align: center; }
     .bank-square span { font-weight: bold; color: #333; font-size: 14px; text-align: center; }
 
@@ -178,56 +179,57 @@
       </div>
     </div>
 
-    <div class="banks-grid-title">Главные коммерческие банки России:</div>
+    <div class="banks-grid-title">Главные коммерческие банки России (нажми, чтобы перейти на сайт):</div>
     <div class="banks-grid">
       
-      <div class="bank-square">
+      <!-- ССЫЛКИ НА БАНКИ -->
+      <a href="https://www.rshb.ru/" target="_blank" class="bank-square">
         <img src="rshb.jpg" alt="РСХБ" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">РСХБ</div>
         <span>Россельхозбанк</span>
-      </div>
+      </a>
 
-      <div class="bank-square">
+      <a href="https://www.sberbank.ru/ru/person" target="_blank" class="bank-square">
         <img src="sber.jpg" alt="Сбер" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Сбер</div>
         <span>Сбербанк</span>
-      </div>
+      </a>
 
-      <div class="bank-square">
+      <a href="https://www.vtb.ru/" target="_blank" class="bank-square">
         <img src="vtb.jpg" alt="ВТБ" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">ВТБ</div>
         <span>ВТБ</span>
-      </div>
+      </a>
       
-      <div class="bank-square">
+      <a href="https://alfabank.ru/" target="_blank" class="bank-square">
         <img src="alfa.jpeg" alt="Альфа" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Альфа</div>
         <span>Альфа-Банк</span>
-      </div>
+      </a>
       
-      <div class="bank-square">
+      <a href="https://www.psbank.ru/" target="_blank" class="bank-square">
         <img src="psb.jpg" alt="ПСБ" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">ПСБ</div>
         <span>ПСБ</span>
-      </div>
+      </a>
       
-      <div class="bank-square">
+      <a href="https://sovcombank.ru/" target="_blank" class="bank-square">
         <img src="sovkom.jpeg" alt="Совком" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Совком</div>
         <span>Совкомбанк</span>
-      </div>
+      </a>
       
-      <div class="bank-square">
+      <a href="https://www.gazprombank.ru/" target="_blank" class="bank-square">
         <img src="gaz.jpg" alt="Газпром" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Газпром</div>
         <span>Газпромбанк</span>
-      </div>
+      </a>
       
-      <div class="bank-square">
+      <a href="https://finance.ozon.ru/" target="_blank" class="bank-square">
         <img src="ozon.jpg" alt="Озон" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Озон</div>
         <span>Озон Банк</span>
-      </div>
+      </a>
       
     </div>
   </section>
