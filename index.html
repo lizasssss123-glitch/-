@@ -38,8 +38,8 @@
     @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
     .logo-header { color: var(--white); font-size: 24px; font-weight: bold; cursor: pointer; }
     .logo-header span { color: var(--rshb-yellow); }
-    .menu-links { display: flex; gap: 8px; }
-    .menu-btn { background: none; border: none; color: var(--white); font-size: 16px; font-weight: 600; padding: 10px 15px; cursor: pointer; border-radius: 8px; transition: all 0.2s; }
+    .menu-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .menu-btn { background: none; border: none; color: var(--white); font-size: 15px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 8px; transition: all 0.2s; }
     .menu-btn:hover, .menu-btn.active { background: var(--rshb-yellow); color: var(--rshb-green); }
     .menu-btn.home-btn { background: rgba(255,255,255,0.1); margin-left: 10px; border: 1px solid var(--rshb-yellow); }
     .menu-btn.home-btn:hover { background: var(--rshb-yellow); }
@@ -108,54 +108,66 @@
     .dep-result { font-size: 22px; font-weight: bold; color: var(--rshb-green); margin-top: 20px; text-align: center; opacity: 0; transform: translateY(10px); transition: all 0.4s ease; white-space: nowrap; }
     .dep-card.active .dep-result { opacity: 1; transform: translateY(0); }
 
-    /* ===== НОВЫЙ ДИЗАЙН ДЛЯ КРЕДИТА НА ОБРАЗОВАНИЕ ===== */
-    .edu-container {
-      display: flex; gap: 30px; max-width: 1000px; width: 100%; align-items: center; justify-content: center; flex-wrap: wrap;
+    /* ===== СУПЕР-СЛАЙД: КРЕДИТ НА ОБРАЗОВАНИЕ ===== */
+    .edu-container { display: flex; gap: 30px; max-width: 1100px; width: 100%; align-items: stretch; justify-content: center; flex-wrap: wrap; }
+    
+    .edu-left { flex: 1.5; min-width: 350px; display: flex; flex-direction: column; gap: 20px; }
+    
+    .edu-info { 
+      background: var(--glass-bg); backdrop-filter: blur(10px); padding: 40px; border-radius: 30px; 
+      border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 15px 35px rgba(0, 77, 36, 0.15); 
+      position: relative; overflow: hidden;
     }
-    .edu-info {
-      flex: 1; min-width: 300px; background: var(--glass-bg); backdrop-filter: blur(10px);
-      padding: 40px; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 15px 35px rgba(0, 77, 36, 0.15); position: relative; overflow: hidden;
-    }
-    /* Золотая полоска слева */
-    .edu-info::before {
-      content: ''; position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--rshb-yellow);
-    }
-    .edu-info h3 { font-size: 28px; color: var(--rshb-green); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .edu-info::before { content: ''; position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--rshb-yellow); }
+    .edu-info h3 { font-size: 28px; color: var(--rshb-green); margin-bottom: 20px; }
     .edu-info p { font-size: 18px; color: #333; line-height: 1.7; margin-bottom: 15px; }
     .edu-info ul { padding-left: 20px; margin-bottom: 20px; }
     .edu-info li { font-size: 18px; color: #333; margin-bottom: 10px; line-height: 1.5; }
     .edu-info b { color: var(--rshb-green); }
 
+    .edu-right { flex: 1; min-width: 320px; display: flex; flex-direction: column; gap: 20px; }
+
+    /* Калькулятор окупаемости */
+    .edu-calc { 
+      background: var(--glass-bg); backdrop-filter: blur(10px); padding: 30px; border-radius: 30px; 
+      border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 15px 35px rgba(0, 77, 36, 0.15);
+    }
+    .edu-calc h3 { font-size: 22px; color: var(--rshb-green); margin-bottom: 20px; text-align: center; }
+    .edu-calc label { font-size: 16px; font-weight: 600; color: #444; display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+    .edu-calc input[type="range"] { width: 100%; accent-color: var(--rshb-green); cursor: pointer; height: 6px; }
+    
+    .edu-calc-result { 
+      margin-top: 20px; padding: 20px; border-radius: 16px; text-align: center; transition: all 0.3s;
+      background: rgba(0, 77, 36, 0.1); border: 2px dashed var(--rshb-green);
+    }
+    .edu-calc-result.good { background: rgba(0, 125, 56, 0.15); border-color: var(--rshb-green-light); border-style: solid; }
+    .edu-calc-result.bad { background: rgba(198, 40, 40, 0.1); border-color: #c62828; border-style: solid; }
+    .edu-calc-result h4 { font-size: 20px; color: var(--rshb-green); margin-bottom: 5px; }
+    .edu-calc-result p { font-size: 16px; color: #333; font-weight: bold; }
+
     /* Карточка-сюрприз с эффектом 3D */
     .edu-surprise-card {
-      flex: 1; min-width: 300px; max-width: 400px; background: linear-gradient(135deg, var(--rshb-green), var(--rshb-green-light));
-      border-radius: 30px; padding: 40px; color: var(--white); cursor: pointer;
+      background: linear-gradient(135deg, var(--rshb-green), var(--rshb-green-light));
+      border-radius: 30px; padding: 30px; color: var(--white); cursor: pointer;
       box-shadow: 0 20px 40px rgba(0, 77, 36, 0.4); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative; overflow: hidden;
+      position: relative; overflow: hidden; flex: 1; display: flex; flex-direction: column; justify-content: center;
     }
-    .edu-surprise-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 50px rgba(0, 77, 36, 0.6); }
-    
-    /* Внутренний блик карточки */
+    .edu-surprise-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 25px 50px rgba(0, 77, 36, 0.6); }
     .edu-surprise-card::after {
       content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
       opacity: 0; transition: opacity 0.4s; pointer-events: none;
     }
     .edu-surprise-card:hover::after { opacity: 1; }
-
-    .edu-surprise-card .icon { font-size: 50px; margin-bottom: 20px; animation: floatIcon 3s ease-in-out infinite; }
+    .edu-surprise-card .icon { font-size: 40px; margin-bottom: 10px; animation: floatIcon 3s ease-in-out infinite; }
     @keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    
-    .edu-surprise-card h3 { font-size: 24px; color: var(--rshb-yellow); margin-bottom: 15px; }
+    .edu-surprise-card h3 { font-size: 22px; color: var(--rshb-yellow); margin-bottom: 10px; }
     .edu-surprise-card .secret-text {
       max-height: 0; overflow: hidden; opacity: 0; transition: all 0.5s ease;
-      font-size: 18px; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 0; padding-top: 0;
+      font-size: 16px; line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 0; padding-top: 0;
     }
-    .edu-surprise-card.open .secret-text {
-      max-height: 300px; opacity: 1; margin-top: 15px; padding-top: 15px;
-    }
-    .edu-surprise-card .click-hint { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 15px; text-align: center; display: block; }
+    .edu-surprise-card.open .secret-text { max-height: 300px; opacity: 1; margin-top: 15px; padding-top: 15px; }
+    .edu-surprise-card .click-hint { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 10px; text-align: center; display: block; }
     .edu-surprise-card.open .click-hint { display: none; }
 
     /* КВИЗ */
@@ -195,7 +207,7 @@
       <button class="menu-btn" onclick="showScreen(1, this)">Банковская система</button>
       <button class="menu-btn" onclick="showScreen(2, this)">Россельхозбанк</button>
       <button class="menu-btn" onclick="showScreen(3, this)">Кредит</button>
-      <button class="menu-btn" onclick="showScreen(4, this)">Кредит на образование</button> <!-- НОВАЯ КНОПКА -->
+      <button class="menu-btn" onclick="showScreen(4, this)">Образование</button> <!-- Сократили для меню -->
       <button class="menu-btn" onclick="showScreen(5, this)">Вклады</button>
       <button class="menu-btn" onclick="showScreen(6, this)">Проверь себя</button>
       <button class="menu-btn home-btn" onclick="restart()">На главную</button>
@@ -233,49 +245,41 @@
         <div class="fallback-text">РСХБ</div>
         <span>Россельхозбанк</span>
       </a>
-
       <a href="https://www.sberbank.ru/ru/person" target="_blank" class="bank-square">
         <img src="sber.jpg" alt="Сбер" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Сбер</div>
         <span>Сбербанк</span>
       </a>
-
       <a href="https://www.vtb.ru/" target="_blank" class="bank-square">
         <img src="vtb.jpg" alt="ВТБ" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">ВТБ</div>
         <span>ВТБ</span>
       </a>
-      
       <a href="https://alfabank.ru/" target="_blank" class="bank-square">
         <img src="alfa.jpeg" alt="Альфа" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Альфа</div>
         <span>Альфа-Банк</span>
       </a>
-      
       <a href="https://www.psbank.ru/" target="_blank" class="bank-square">
         <img src="psb.jpg" alt="ПСБ" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">ПСБ</div>
         <span>ПСБ</span>
       </a>
-      
       <a href="https://sovcombank.ru/" target="_blank" class="bank-square">
         <img src="sovkom.jpeg" alt="Совком" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Совком</div>
         <span>Совкомбанк</span>
       </a>
-      
       <a href="https://www.gazprombank.ru/" target="_blank" class="bank-square">
         <img src="gaz.jpg" alt="Газпром" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Газпром</div>
         <span>Газпромбанк</span>
       </a>
-      
       <a href="https://finance.ozon.ru/" target="_blank" class="bank-square">
         <img src="ozon.jpg" alt="Озон" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-text">Озон</div>
         <span>Озон Банк</span>
       </a>
-      
     </div>
   </section>
 
@@ -345,33 +349,56 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 4: КРЕДИТ НА ОБРАЗОВАНИЕ (СЮРПРИЗ) -->
+  <!-- ЭКРАН 4: КРЕДИТ НА ОБРАЗОВАНИЕ (СУПЕР-СЛАЙД) -->
   <section class="screen" id="screen-4">
     <h2 style="margin-bottom: 30px;">Инвестиция в свое будущее</h2>
     
     <div class="edu-container">
       <!-- Левая часть с информацией -->
-      <div class="edu-info">
-        <h3>🎓 Кредит на образование</h3>
-        <p>Это специальный вид кредита, который помогает оплатить учебу в вузе, колледже или на курсах, если своих денег прямо сейчас не хватает.</p>
-        <ul>
-          <li><b>Долгий срок.</b> Выплачивать можно до 10–15 лет, чтобы после выпуска не отдавать половину зарплаты.</li>
-          <li><b>Льготный период.</b> Часто банки дают отсрочку на время учебы. Основной долг начнешь гасить после диплома.</li>
-          <li><b>Господдержка.</b> По программе с господдержкой государство берет часть процентов на себя, делая ставку очень низкой (около 3%).</li>
-          <li><b>Деньги идут в вуз.</b> Банк перечисляет средства напрямую учебному заведению.</li>
-        </ul>
-        <p><b>Главное правило:</b> это инвестиция в себя. Если специальность востребована — шаг оправдан.</p>
+      <div class="edu-left">
+        <div class="edu-info">
+          <h3>🎓 Кредит на образование</h3>
+          <p>Это специальный вид кредита, который помогает оплатить учебу в вузе, колледже или на курсах.</p>
+          <ul>
+            <li><b>Долгий срок.</b> Выплачивать можно до 10–15 лет, чтобы после выпуска не отдавать половину зарплаты.</li>
+            <li><b>Льготный период.</b> Отсрочка на время учебы. Основной долг начнешь гасить после диплома.</li>
+            <li><b>Господдержка.</b> По программе с господдержкой государство берет часть процентов на себя (около 3%).</li>
+            <li><b>Деньги идут в вуз.</b> Банк перечисляет средства напрямую учебному заведению.</li>
+          </ul>
+          <p><b>Главное правило:</b> это инвестиция в себя. Если специальность востребована — шаг оправдан.</p>
+        </div>
       </div>
 
-      <!-- Правая часть - интерактивная карточка-сюрприз -->
-      <div class="edu-surprise-card" onclick="toggleCard(this)">
-        <div class="icon">💡</div>
-        <h3>Секретный факт</h3>
-        <p>А знаешь ли ты, что...</p>
-        <div class="secret-text">
-          <p>...в России можно получить образование, платя всего <b>3% годовых</b>? Это возможно благодаря программе «Образовательный кредит с господдержкой». Государство субсидирует разницу, чтобы обучение было доступным для каждого!</p>
+      <!-- Правая часть: Калькулятор и Сюрприз -->
+      <div class="edu-right">
+        
+        <!-- Калькулятор окупаемости -->
+        <div class="edu-calc">
+          <h3>Окупится ли твое обучение?</h3>
+          <label>Стоимость обучения (в год): <span id="edu-cost-val">150 000</span> ₽
+            <input type="range" id="edu-cost" min="50000" max="500000" step="10000" value="150000" oninput="calcEdu()">
+          </label>
+          <label>Будущая зарплата (в месяц): <span id="edu-salary-val">60 000</span> ₽
+            <input type="range" id="edu-salary" min="20000" max="200000" step="5000" value="60000" oninput="calcEdu()">
+          </label>
+          
+          <div class="edu-calc-result" id="edu-result-box">
+            <h4>Кредит окупится за...</h4>
+            <p id="edu-result-text">3 года и 2 месяца</p>
+          </div>
         </div>
-        <span class="click-hint">Нажми, чтобы узнать 👆</span>
+
+        <!-- Карточка-сюрприз -->
+        <div class="edu-surprise-card" onclick="toggleCard(this)">
+          <div class="icon">💡</div>
+          <h3>Секретный факт</h3>
+          <p>А знаешь ли ты, что...</p>
+          <div class="secret-text">
+            <p>...в России можно получить образование, платя всего <b>3% годовых</b>? Это возможно благодаря программе «Образовательный кредит с господдержкой». Государство субсидирует разницу, чтобы обучение было доступным для каждого!</p>
+          </div>
+          <span class="click-hint">Нажми, чтобы узнать 👆</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -474,6 +501,7 @@
       if (!isActive) el.classList.add('active');
     }
 
+    // ===== КАЛЬКУЛЯТОР КРЕДИТА =====
     function calcCredit() {
       const sum = +document.getElementById('credit-sum').value;
       const term = +document.getElementById('credit-term').value;
@@ -488,6 +516,7 @@
       document.getElementById('credit-total').innerText = Math.round(total).toLocaleString('ru-RU') + ' ₽';
     }
 
+    // ===== КАЛЬКУЛЯТОР ВКЛАДА =====
     function calcDeposit() {
       const sum = +document.getElementById('dep-sum').value;
       const term = +document.getElementById('dep-term').value;
@@ -499,6 +528,52 @@
       const total = sum + income;
       document.getElementById('dep-income').innerText = Math.round(income).toLocaleString('ru-RU') + ' ₽';
       document.getElementById('dep-total').innerText = Math.round(total).toLocaleString('ru-RU') + ' ₽';
+    }
+
+    // ===== КАЛЬКУЛЯТОР ОКУПАЕМОСТИ ОБРАЗОВАНИЯ =====
+    function calcEdu() {
+      const cost = +document.getElementById('edu-cost').value;
+      const salary = +document.getElementById('edu-salary').value;
+      
+      document.getElementById('edu-cost-val').innerText = cost.toLocaleString('ru-RU');
+      document.getElementById('edu-salary-val').innerText = salary.toLocaleString('ru-RU');
+
+      // Представим, что учеба длится 4 года, а кредит берем на всю сумму
+      const totalLoan = cost * 4;
+      
+      // Чистый доход в месяц (отнимаем примерно 30% на налоги и жизнь, остальное идет на кредит)
+      const netIncome = salary * 0.7; 
+      
+      // За сколько месяцев окупится весь кредит
+      const monthsToPay = Math.round(totalLoan / netIncome);
+      
+      const resultBox = document.getElementById('edu-result-box');
+      const resultText = document.getElementById('edu-result-text');
+
+      if (netIncome <= 0) {
+        resultText.innerText = "Никогда...";
+        resultBox.className = "edu-calc-result bad";
+        return;
+      }
+
+      const years = Math.floor(monthsToPay / 12);
+      const months = monthsToPay % 12;
+      
+      let timeStr = "";
+      if (years > 0) timeStr += `${years} г. `;
+      if (months > 0) timeStr += `${months} мес.`;
+      if (timeStr === "") timeStr = "1 месяц";
+
+      resultText.innerText = timeStr;
+
+      // Меняем цвет в зависимости от срока
+      if (monthsToPay <= 60) {
+        resultBox.className = "edu-calc-result good"; // Очень быстро (до 5 лет)
+      } else if (monthsToPay <= 120) {
+        resultBox.className = "edu-calc-result"; // Нормально (до 10 лет)
+      } else {
+        resultBox.className = "edu-calc-result bad"; // Долго (больше 10 лет)
+      }
     }
 
     const quizData = [
@@ -549,6 +624,7 @@
     window.onload = function() {
       calcCredit();
       calcDeposit();
+      calcEdu();
     };
   </script>
 </body>
